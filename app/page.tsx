@@ -1,10 +1,17 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import { startOfDay, endOfDay, dateStamp } from "@/lib/day";
+import {
+  startOfDay,
+  endOfDay,
+  dateStamp,
+  timeStamp,
+  zoneLabel,
+} from "@/lib/day";
 import { requireUser } from "@/lib/session";
 import MacroPanel from "@/components/MacroPanel";
 import MealList from "@/components/MealList";
 import QuickAddBar from "@/components/QuickAddBar";
+import DayWindow from "@/components/DayWindow";
 
 // Today's totals must never be baked at build time.
 export const dynamic = "force-dynamic";
@@ -45,8 +52,14 @@ export default async function DashboardPage() {
     <main className="px-4 pt-6">
       <header className="flex items-end justify-between gap-3 border-b-2 border-ink pb-2">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink/70">
-            {user.name} &middot; {dateStamp()}
+          <p className="flex flex-wrap gap-x-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink/70">
+            <span className="whitespace-nowrap">{user.name}</span>
+            <span aria-hidden="true">&middot;</span>
+            <span className="whitespace-nowrap">{dateStamp()}</span>
+            <span aria-hidden="true">&middot;</span>
+            <span className="whitespace-nowrap tabular-nums">
+              {timeStamp()} {zoneLabel()}
+            </span>
           </p>
           <h1 className="text-xl font-extrabold tracking-tight">Today</h1>
         </div>
@@ -70,6 +83,7 @@ export default async function DashboardPage() {
           carbGoal={profile.carbGoal}
           fatGoal={profile.fatGoal}
         />
+        <DayWindow />
       </div>
 
       <QuickAddBar favorites={favorites} />

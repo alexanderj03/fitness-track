@@ -236,14 +236,27 @@ icon mask (maskable safe zone).
 - Keep components small and single-purpose: `MacroGauge` (one hero macro:
   figure, segmented day strip, graduations), `GoalBar` (the quiet carbs/fat
   row), `MacroPanel` (composes them), `MealList`, `QuickAddBar`, `BottomNav`,
-  `PinPad`, `WhoPicker`, `AccountPanel` are separate files, not one giant
-  dashboard component.
+  `PinPad`, `WhoPicker`, `AccountPanel`, `DayWindow` are separate files, not
+  one giant dashboard component.
+- `DayWindow` under the panel prints the server's clock, the zone abbreviation
+  (`AEST`/`AEDT`, so a wrong offset is visible) and the exact window "today"
+  covers; its `title` carries the UTC instants. Entry rows print their stored
+  `loggedAt`. Keep both — they're how a timezone regression gets noticed.
 - Server components for data reads, client components only where
   interactivity/mutation is needed.
 - Day boundaries and formatting live in `lib/day.ts` (`startOfDay`,
   `endOfDay`, `dayKey`, `last7Days`, `shortWeekday`, `dateStamp`) — don't
   reimplement date math inline in pages. Figure formatting lives in
   `lib/format.ts` (`num`, `pct`).
+- `lib/day.ts` computes every boundary in **`APP_TIME_ZONE`** (default
+  `Australia/Sydney`) using `Intl`, never in the host's local time — so a UTC
+  Vercel function and a local machine agree. Don't reintroduce `setHours` or
+  `getDate` for day math: those read the host zone, and on Vercel that starts
+  "today" at 10am Sydney. `lastNDays` steps the calendar rather than
+  subtracting 24h, so DST changes can't drop or duplicate a day.
+- If people in different timezones ever share a deployment, the zone becomes a
+  `User` column and the day helpers take it as an argument. One env-level
+  default is only correct for a single-household deployment.
 - `lib/prisma.ts` singleton pattern to avoid connection exhaustion in dev —
   standard Next.js/Prisma pattern, same as other projects.
 - Identity lives in three small files: `lib/pin.ts` (PIN shape, safe to import
@@ -263,9 +276,12 @@ icon mask (maskable safe zone).
 3. `npx prisma migrate dev` — applies migrations to Neon over `DIRECT_URL`
 4. `npm run dev` to check locally
 5. Push to GitHub, import into Vercel
-6. Add all three env vars in Vercel (Production **and** Preview), then
-   redeploy — env vars don't apply to builds that already ran. The app throws
-   on boot without `SESSION_SECRET`; changing it later signs every device out
+6. Add the three env vars in Vercel (Production **and** Preview), then
+   redeploy; env vars don't apply to builds that already ran. The app throws
+   on boot without `SESSION_SECRET`; changing it later signs every device out.
+   No `TZ` needed — `lib/day.ts` does its own zone math. Also set the project's
+   function region to the one nearest the Neon database (`syd1` for
+   `ap-southeast-2`), or every query crosses an ocean
 7. `npm run build` runs `prisma generate && prisma migrate deploy && next
    build`, so Vercel applies pending migrations on every deploy. This needs
    `DIRECT_URL` present in the build environment

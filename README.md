@@ -56,6 +56,10 @@ DIRECT_URL="postgresql://USER:PASSWORD@ep-xxx.REGION.aws.neon.tech/neondb?sslmod
 SESSION_SECRET="…"   # openssl rand -hex 32
 ```
 
+Day boundaries are computed in `APP_TIME_ZONE` (default `Australia/Sydney`),
+not in the host's local time, so a UTC host like Vercel behaves identically to
+your laptop. Set `APP_TIME_ZONE` only if the household moves.
+
 `.env` is gitignored. Never commit it.
 
 **4. Migrate and run**
@@ -86,10 +90,13 @@ database. This needs `DIRECT_URL` present in the build environment.
 1. Push to GitHub, import the repo into Vercel
 2. Add `DATABASE_URL`, `DIRECT_URL` and `SESSION_SECRET` under Settings →
    Environment Variables, for **Production and Preview**
-3. Redeploy — env vars don't apply to builds that already ran
-4. On iPhone: open the deployed URL in **Safari** (not an in-app browser) →
+3. Set the function region to the one nearest your Neon database (`syd1` for
+   `ap-southeast-2`) — otherwise every query crosses an ocean, and each page
+   makes several
+4. Redeploy — env vars don't apply to builds that already ran
+5. On iPhone: open the deployed URL in **Safari** (not an in-app browser) →
    Share → Add to Home Screen
-5. Open the installed icon and pick your name. An installed PWA has its own
+6. Open the installed icon and pick your name. An installed PWA has its own
    cookie jar, so signing in beforehand in Safari does not carry over
 
 ## How identity works

@@ -1,6 +1,7 @@
 import type { FoodEntry, MealType } from "@prisma/client";
 import DeleteEntryButton from "@/components/DeleteEntryButton";
 import { num } from "@/lib/format";
+import { timeStamp } from "@/lib/day";
 
 const MEAL_ORDER: MealType[] = ["BREAKFAST", "LUNCH", "DINNER", "SNACK"];
 const MEAL_LABELS: Record<MealType, string> = {
@@ -52,15 +53,23 @@ export default function MealList({ entries }: { entries: FoodEntry[] }) {
                   key={entry.id}
                   className="flex items-center justify-between gap-3 border-b border-line py-1"
                 >
-                  <div className="min-w-0 py-1">
-                    <div className="truncate text-sm font-medium">
-                      {entry.name}
-                    </div>
-                    {entry.note && (
-                      <div className="truncate text-xs text-ink/70">
-                        {entry.note}
+                  <div className="flex min-w-0 items-baseline gap-2 py-1">
+                    <time
+                      dateTime={entry.loggedAt.toISOString()}
+                      className="w-[52px] shrink-0 text-[11px] tabular-nums text-ink/70"
+                    >
+                      {timeStamp(entry.loggedAt)}
+                    </time>
+                    <div className="min-w-0">
+                      <div className="truncate text-sm font-medium">
+                        {entry.name}
                       </div>
-                    )}
+                      {entry.note && (
+                        <div className="truncate text-xs text-ink/70">
+                          {entry.note}
+                        </div>
+                      )}
+                    </div>
                   </div>
                   <div className="flex shrink-0 items-center gap-1">
                     <div className="text-right text-xs tabular-nums text-ink/70">
