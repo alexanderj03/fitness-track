@@ -205,10 +205,18 @@ undecided) live in `PRODUCT.md`.
   person's day to another, and would also bypass the sign-in redirect. Do not
   reintroduce app-shell caching for HTML
 - Root layout needs `manifest: "/manifest.json"`, `appleWebApp: { capable:
-  true, statusBarStyle: "black-translucent" }`, and a viewport with
-  `viewportFit: "cover"` (respects the iPhone notch/safe area)
-- Bottom nav should pad for `env(safe-area-inset-bottom)` so it clears the
-  home indicator
+  true, statusBarStyle: "default" }`, and a viewport with `viewportFit:
+  "cover"`. **Not `black-translucent`** — that forces white status-bar glyphs,
+  which disappear against `paper`, and it extends the canvas under the Dynamic
+  Island where the masthead then hides behind it
+- Safe areas are handled **once**, in the root layout's wrapper
+  (`padding-top/left/right: env(safe-area-inset-*)`), not per page. Pages just
+  use their normal `pt-6`
+- Bottom nav pads for the home indicator with
+  `max(calc(env(safe-area-inset-bottom) - 14px), 8px)`, not the raw inset: the
+  full 34px under a single 11px label reads as dead space. Tap targets stay
+  44px and end clear of the home-indicator gesture zone. The content wrapper's
+  `pb-20` is sized to that nav height
 
 ### iOS-specific constraints to design around
 

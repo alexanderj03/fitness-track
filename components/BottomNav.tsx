@@ -19,9 +19,15 @@ export default function BottomNav() {
   return (
     <nav
       className="fixed inset-x-0 bottom-0 z-10 border-t border-ink bg-paper"
-      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+      style={{
+        // The full 34px inset under a one-line label reads as dead space. Keep
+        // the tap targets clear of the home-indicator gesture zone and no more.
+        paddingBottom: "max(calc(env(safe-area-inset-bottom) - 14px), 8px)",
+        paddingLeft: "env(safe-area-inset-left)",
+        paddingRight: "env(safe-area-inset-right)",
+      }}
     >
-      <ul className="grid grid-cols-4">
+      <ul className="mx-auto grid max-w-md grid-cols-4">
         {TABS.map((tab) => {
           const active =
             tab.href === "/" ? pathname === "/" : pathname.startsWith(tab.href);
@@ -29,7 +35,7 @@ export default function BottomNav() {
             <li key={tab.href}>
               <Link
                 href={tab.href}
-                className={`flex min-h-[44px] flex-col items-center justify-center py-3 text-[11px] font-semibold uppercase tracking-[0.12em] ${
+                className={`flex min-h-[44px] flex-col items-center justify-center text-[11px] font-semibold uppercase tracking-[0.12em] ${
                   active ? "text-ink" : "text-ink/70"
                 }`}
               >

@@ -270,7 +270,9 @@ Sub-sections step down to the 11px eyebrow — there is no 16px middle heading t
 ## Layout
 
 A single centered column capped at 28rem (`max-w-md`, 448px), 16px side gutters, 24px
-of lead above the page headline, and 96px of bottom padding to clear the fixed nav.
+of lead above the page headline, and 80px of bottom padding to clear the fixed nav.
+The device's safe areas are added once at the layout wrapper — top, left and right —
+so a page never pads for the Dynamic Island itself.
 There are no breakpoints and no multi-column layouts: the phone is the target device
 and the column simply centers on anything wider.
 
@@ -279,9 +281,11 @@ padding inside instruments, 16px between form fields, 24px between major blocks,
 between page sections. Density is deliberately tight inside the Daily Values panel and
 loose between panels, so the instrument reads as one object.
 
-The bottom nav is fixed, full-bleed, four equal columns, with
-`padding-bottom: env(safe-area-inset-bottom)` so it clears the home indicator in
-standalone mode. Content scrolls under it; it never scrolls away.
+The bottom nav is fixed, full-bleed, four equal columns of 44px targets. It clears the
+home indicator with `max(calc(env(safe-area-inset-bottom) - 14px), 8px)` rather than
+the raw inset: a single 11px label above 34px of empty paper reads as a mistake, and
+the trimmed band still keeps every target out of the home-indicator gesture zone.
+Content scrolls under it; it never scrolls away.
 
 ### Named Rules
 
@@ -378,7 +382,9 @@ component library would round by default. A radius anywhere reads as a foreign o
   tweak.
 - **States:** active is full ink; inactive is a reduced-opacity ink. The dashboard tab
   matches only the exact `/` route; every other tab matches by path prefix.
-- **Safe area:** `padding-bottom: env(safe-area-inset-bottom)`.
+- **Safe area:** `max(calc(env(safe-area-inset-bottom) - 14px), 8px)` at the bottom,
+  plus the left/right insets for landscape. The top, left and right insets are the
+  layout wrapper's job, not any page's.
 
 ### The Daily Values Panel (signature)
 

@@ -9,7 +9,9 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
-    statusBarStyle: "black-translucent",
+    // "default", not "black-translucent": this app is light, and translucent
+    // forces white status-bar glyphs that vanish against paper.
+    statusBarStyle: "default",
     title: "Macro Tracker",
   },
   icons: {
@@ -32,7 +34,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-paper text-ink antialiased">
-        <div className="mx-auto max-w-md pb-24">{children}</div>
+        {/* viewport-fit=cover puts the canvas under the Dynamic Island and the
+            landscape corners, so every edge is padded here rather than in each
+            page. Bottom clearance is the nav's height, not the raw inset —
+            BottomNav pads for the home indicator itself. */}
+        <div
+          className="mx-auto max-w-md pb-20"
+          style={{
+            paddingTop: "env(safe-area-inset-top)",
+            paddingLeft: "env(safe-area-inset-left)",
+            paddingRight: "env(safe-area-inset-right)",
+          }}
+        >
+          {children}
+        </div>
         <BottomNav />
         <RegisterSW />
       </body>
