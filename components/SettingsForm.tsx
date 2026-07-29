@@ -2,9 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import type { Profile } from "@prisma/client";
+import type { Goals } from "@/lib/goals";
 
-export default function SettingsForm({ profile }: { profile: Profile }) {
+export default function SettingsForm({ profile }: { profile: Goals }) {
   const router = useRouter();
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);

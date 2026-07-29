@@ -1,5 +1,7 @@
+import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
-import { requireUser } from "@/lib/session";
+import { requireUserId } from "@/lib/session";
+import { DEFAULT_GOALS } from "@/lib/goals";
 import SettingsForm from "@/components/SettingsForm";
 import FavoritesList from "@/components/FavoritesList";
 import AccountPanel from "@/components/AccountPanel";
@@ -7,19 +9,21 @@ import AccountPanel from "@/components/AccountPanel";
 export const dynamic = "force-dynamic";
 
 export default async function SettingsPage() {
-  const user = await requireUser();
+  const userId = requireUserId();
 
-  const [profile, favorites] = await Promise.all([
-    prisma.profile.upsert({
-      where: { userId: user.id },
-      update: {},
-      create: { userId: user.id },
-    }),
-    prisma.favoriteFood.findMany({
-      where: { userId: user.id },
-      orderBy: { createdAt: "desc" },
-    }),
-  ]);
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: {
+      name: true,
+      profile: true,
+      favorites: { orderBy: { createdAt: "desc" } },
+    },
+  });
+
+  if (!user) redirect("/who");
+
+  const profile = user.profile ?? DEFAULT_GOALS;
+  const favorites = user.favorites;
 
   return (
     <main className="px-4 pt-6">

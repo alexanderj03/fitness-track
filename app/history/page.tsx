@@ -1,27 +1,34 @@
+import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { lastNDays, startOfDay, endOfDay, dayKey, shortWeekday } from "@/lib/day";
-import { requireUser } from "@/lib/session";
-import HistoryChart from "@/components/HistoryChart";
+import { requireUserId } from "@/lib/session";
+import { DEFAULT_GOALS } from "@/lib/goals";
+import HistoryChartLoader from "@/components/HistoryChartLoader";
 
 export const dynamic = "force-dynamic";
 
 export default async function HistoryPage() {
-  const user = await requireUser();
+  const userId = requireUserId();
 
   const days = lastNDays(14);
   const rangeStart = startOfDay(days[0]);
   const rangeEnd = endOfDay(days[days.length - 1]);
 
-  const [profile, entries] = await Promise.all([
-    prisma.profile.upsert({
-      where: { userId: user.id },
-      update: {},
-      create: { userId: user.id },
-    }),
-    prisma.foodEntry.findMany({
-      where: { userId: user.id, loggedAt: { gte: rangeStart, lte: rangeEnd } },
-    }),
-  ]);
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: {
+      profile: true,
+      entries: {
+        where: { loggedAt: { gte: rangeStart, lte: rangeEnd } },
+        select: { loggedAt: true, calories: true, protein: true },
+      },
+    },
+  });
+
+  if (!user) redirect("/who");
+
+  const profile = user.profile ?? DEFAULT_GOALS;
+  const entries = user.entries;
 
   const totalsByDay = new Map<string, { calories: number; protein: number }>();
   for (const day of days) {
@@ -57,7 +64,7 @@ export default async function HistoryPage() {
       <h1 className="text-xl font-extrabold tracking-tight">Last 14 Days</h1>
 
       <div className="mt-4">
-        <HistoryChart
+        <HistoryChartLoader
           data={chartData}
           calorieGoal={profile.calorieGoal}
           proteinGoal={profile.proteinGoal}

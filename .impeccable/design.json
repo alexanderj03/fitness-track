@@ -8,79 +8,196 @@
         "role": "neutral",
         "displayName": "Warm Paper",
         "canonical": "#FAFAF7",
-        "tonalRamp": ["#141410", "#2B2B23", "#434338", "#5C5C4E", "#868677", "#ADAB9E", "#D8D6CC", "#FAFAF7"]
+        "tonalRamp": [
+          "#141410",
+          "#2B2B23",
+          "#434338",
+          "#5C5C4E",
+          "#868677",
+          "#ADAB9E",
+          "#D8D6CC",
+          "#FAFAF7"
+        ]
       },
       "ink": {
         "role": "neutral",
         "displayName": "Warm Ink",
         "canonical": "#14140F",
-        "tonalRamp": ["#141410", "#2B2B23", "#434338", "#5C5C4E", "#868677", "#ADAB9E", "#D8D6CC", "#FAFAF7"]
+        "tonalRamp": [
+          "#141410",
+          "#2B2B23",
+          "#434338",
+          "#5C5C4E",
+          "#868677",
+          "#ADAB9E",
+          "#D8D6CC",
+          "#FAFAF7"
+        ]
       },
       "line": {
         "role": "neutral",
         "displayName": "Bone Line",
         "canonical": "#D8D6CC",
-        "tonalRamp": ["#141410", "#2B2B23", "#434338", "#5C5C4E", "#868677", "#ADAB9E", "#D8D6CC", "#FAFAF7"]
+        "tonalRamp": [
+          "#141410",
+          "#2B2B23",
+          "#434338",
+          "#5C5C4E",
+          "#868677",
+          "#ADAB9E",
+          "#D8D6CC",
+          "#FAFAF7"
+        ]
       },
       "calorie": {
         "role": "primary",
         "displayName": "Toasted Amber",
         "canonical": "#C97A2E",
-        "tonalRamp": ["#2B1806", "#4A2A0C", "#6B3D13", "#8D521B", "#B0661F", "#C97A2E", "#E09A4E", "#F0C495"]
+        "tonalRamp": [
+          "#2B1806",
+          "#4A2A0C",
+          "#6B3D13",
+          "#8D521B",
+          "#B0661F",
+          "#C97A2E",
+          "#E09A4E",
+          "#F0C495"
+        ]
       },
       "protein": {
         "role": "primary",
         "displayName": "Field Green",
         "canonical": "#3F6B3E",
-        "tonalRamp": ["#0E1A0E", "#182C18", "#234123", "#2F5630", "#3F6B3E", "#558455", "#6FA36D", "#A8C7A6"]
+        "tonalRamp": [
+          "#0E1A0E",
+          "#182C18",
+          "#234123",
+          "#2F5630",
+          "#3F6B3E",
+          "#558455",
+          "#6FA36D",
+          "#A8C7A6"
+        ]
       },
       "over": {
         "role": "tertiary",
         "displayName": "Signal Red",
         "canonical": "#B23A2E",
-        "tonalRamp": ["#2B0C08", "#451410", "#631E17", "#83271F", "#A33128", "#B23A2E", "#E0705E", "#F0A79B"]
+        "tonalRamp": [
+          "#2B0C08",
+          "#451410",
+          "#631E17",
+          "#83271F",
+          "#A33128",
+          "#B23A2E",
+          "#E0705E",
+          "#F0A79B"
+        ]
       },
       "dark-ground": {
         "role": "neutral",
         "displayName": "Charcoal Ground",
         "canonical": "#1C1C17",
-        "tonalRamp": ["#141410", "#1C1C17", "#23231D", "#3E3E35", "#5C5C4E", "#868677", "#ADAB9E", "#F2F1E8"]
+        "tonalRamp": [
+          "#141410",
+          "#1C1C17",
+          "#23231D",
+          "#3E3E35",
+          "#5C5C4E",
+          "#868677",
+          "#ADAB9E",
+          "#F2F1E8"
+        ]
       },
       "dark-surface": {
         "role": "neutral",
         "displayName": "Charcoal Surface",
         "canonical": "#23231D",
-        "tonalRamp": ["#141410", "#1C1C17", "#23231D", "#3E3E35", "#5C5C4E", "#868677", "#ADAB9E", "#F2F1E8"]
+        "tonalRamp": [
+          "#141410",
+          "#1C1C17",
+          "#23231D",
+          "#3E3E35",
+          "#5C5C4E",
+          "#868677",
+          "#ADAB9E",
+          "#F2F1E8"
+        ]
       },
       "dark-ink": {
         "role": "neutral",
         "displayName": "Bone Text",
         "canonical": "#F2F1E8",
-        "tonalRamp": ["#141410", "#1C1C17", "#23231D", "#3E3E35", "#5C5C4E", "#868677", "#ADAB9E", "#F2F1E8"]
+        "tonalRamp": [
+          "#141410",
+          "#1C1C17",
+          "#23231D",
+          "#3E3E35",
+          "#5C5C4E",
+          "#868677",
+          "#ADAB9E",
+          "#F2F1E8"
+        ]
       },
       "dark-line": {
         "role": "neutral",
         "displayName": "Charcoal Rule",
         "canonical": "#3E3E35",
-        "tonalRamp": ["#141410", "#1C1C17", "#23231D", "#3E3E35", "#5C5C4E", "#868677", "#ADAB9E", "#F2F1E8"]
+        "tonalRamp": [
+          "#141410",
+          "#1C1C17",
+          "#23231D",
+          "#3E3E35",
+          "#5C5C4E",
+          "#868677",
+          "#ADAB9E",
+          "#F2F1E8"
+        ]
       },
       "dark-calorie": {
         "role": "primary",
         "displayName": "Lifted Amber",
         "canonical": "#E09A4E",
-        "tonalRamp": ["#2B1806", "#4A2A0C", "#6B3D13", "#8D521B", "#B0661F", "#C97A2E", "#E09A4E", "#F0C495"]
+        "tonalRamp": [
+          "#2B1806",
+          "#4A2A0C",
+          "#6B3D13",
+          "#8D521B",
+          "#B0661F",
+          "#C97A2E",
+          "#E09A4E",
+          "#F0C495"
+        ]
       },
       "dark-protein": {
         "role": "primary",
         "displayName": "Lifted Green",
         "canonical": "#6FA36D",
-        "tonalRamp": ["#0E1A0E", "#182C18", "#234123", "#2F5630", "#3F6B3E", "#558455", "#6FA36D", "#A8C7A6"]
+        "tonalRamp": [
+          "#0E1A0E",
+          "#182C18",
+          "#234123",
+          "#2F5630",
+          "#3F6B3E",
+          "#558455",
+          "#6FA36D",
+          "#A8C7A6"
+        ]
       },
       "dark-over": {
         "role": "tertiary",
         "displayName": "Lifted Signal",
         "canonical": "#E0705E",
-        "tonalRamp": ["#2B0C08", "#451410", "#631E17", "#83271F", "#A33128", "#B23A2E", "#E0705E", "#F0A79B"]
+        "tonalRamp": [
+          "#2B0C08",
+          "#451410",
+          "#631E17",
+          "#83271F",
+          "#A33128",
+          "#B23A2E",
+          "#E0705E",
+          "#F0A79B"
+        ]
       }
     },
     "typographyMeta": {
@@ -122,14 +239,46 @@
       "dark": "committed decision, not yet implemented. Resolution: OS preference by default, with Light/Dark/Auto override in Settings; the stored preference must be applied by an inline script before first paint."
     },
     "contrastFindings": [
-      { "token": "ink/60 on paper", "ratio": "3.7:1", "status": "fails WCAG AA for 11-14px text; used on every eyebrow label. Correct to ink/70 (6.4:1)." },
-      { "token": "ink/40 on paper", "ratio": "2.6:1", "status": "fails WCAG AA; used on inactive nav labels and the delete glyph. Correct to ink/60 minimum, ink/70 preferred." },
-      { "token": "protein on paper", "ratio": "4.6:1", "status": "passes for text, but never carries meaning alone; the eyebrow label names the row." },
-      { "token": "calorie on paper", "ratio": "3.4:1", "status": "bar fill only. Never use as text on paper." },
-      { "token": "dark-calorie on dark-ground", "ratio": "7.4:1", "status": "pass" },
-      { "token": "dark-protein on dark-ground", "ratio": "5.9:1", "status": "pass" },
-      { "token": "dark-over on dark-ground", "ratio": "5.5:1", "status": "pass" },
-      { "token": "dark-ink on dark-ground", "ratio": "15:1", "status": "pass" }
+      {
+        "token": "ink/60 on paper",
+        "ratio": "3.7:1",
+        "status": "fails WCAG AA for 11-14px text; used on every eyebrow label. Correct to ink/70 (6.4:1)."
+      },
+      {
+        "token": "ink/40 on paper",
+        "ratio": "2.6:1",
+        "status": "fails WCAG AA; used on inactive nav labels and the delete glyph. Correct to ink/60 minimum, ink/70 preferred."
+      },
+      {
+        "token": "protein on paper",
+        "ratio": "4.6:1",
+        "status": "passes for text, but never carries meaning alone; the eyebrow label names the row."
+      },
+      {
+        "token": "calorie on paper",
+        "ratio": "3.4:1",
+        "status": "bar fill only. Never use as text on paper."
+      },
+      {
+        "token": "dark-calorie on dark-ground",
+        "ratio": "7.4:1",
+        "status": "pass"
+      },
+      {
+        "token": "dark-protein on dark-ground",
+        "ratio": "5.9:1",
+        "status": "pass"
+      },
+      {
+        "token": "dark-over on dark-ground",
+        "ratio": "5.5:1",
+        "status": "pass"
+      },
+      {
+        "token": "dark-ink on dark-ground",
+        "ratio": "15:1",
+        "status": "pass"
+      }
     ]
   },
   "components": [
@@ -193,9 +342,9 @@
       "name": "Bottom Navigation",
       "kind": "nav",
       "refersTo": "nav-bottom",
-      "description": "Fixed four-column text-only tab bar with a 1px ink top rule and safe-area padding for the iPhone home indicator.",
+      "description": "Fixed four-column text-only tab bar. Hairline-separated 48px cells make each tab's hit area legible at rest; the active cell is a solid ink block, and inactive cells invert while pressed.",
       "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-item ds-nav-item--active\" href=\"#\">Today</a><a class=\"ds-nav-item\" href=\"#\">Log</a><a class=\"ds-nav-item\" href=\"#\">History</a><a class=\"ds-nav-item\" href=\"#\">Settings</a></nav>",
-      "css": ".ds-nav { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #14140F; background: #FAFAF7; padding-bottom: max(calc(env(safe-area-inset-bottom) - 14px), 8px); padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; } .ds-nav-item { display: flex; align-items: center; justify-content: center; min-height: 44px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.025em; text-decoration: none; color: rgba(20,20,15,0.6); } .ds-nav-item--active { color: #14140F; } .ds-nav-item:hover { color: #14140F; } .ds-nav-item:focus-visible { outline: 2px solid #14140F; outline-offset: -2px; }"
+      "css": ".ds-nav { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #14140F; background: #FAFAF7; padding-bottom: max(calc(env(safe-area-inset-bottom) - 22px), 6px); padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; } .ds-nav-item { display: flex; align-items: center; justify-content: center; min-height: 48px; touch-action: manipulation; border-left: 1px solid #D8D6CC; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; text-decoration: none; color: rgba(20,20,15,0.7); } .ds-nav-item:first-child { border-left: none; } .ds-nav-item--active { background: #14140F; color: #FAFAF7; } .ds-nav-item:active { background: #14140F; color: #FAFAF7; } .ds-nav-item:focus-visible { outline: 2px solid #14140F; outline-offset: -2px; }"
     },
     {
       "name": "Entry Row",
@@ -218,19 +367,71 @@
       "Single 28rem column, thumb-first, bottom-anchored navigation"
     ],
     "rules": [
-      { "name": "The Two-Ink Rule", "body": "Amber and green are the only hues the system spends. Every other mark is paper, ink, or line. A new color requires a new measured quantity to justify it — never a new mood, section, or emphasis level.", "section": "colors" },
-      { "name": "The Earned Red Rule", "body": "Signal Red reports a state and nothing else. It never styles a heading, an icon, a border, or a delete affordance. If red is on screen, a number is out of range.", "section": "colors" },
-      { "name": "The Warm Ground Rule", "body": "Neither theme reaches an extreme. No #FFFFFF, no #000000, ever. The stock is always warm.", "section": "colors" },
-      { "name": "The Eyebrow Rule", "body": "Every value carries an 11px all-caps label. A number on this surface is never left to explain itself.", "section": "typography" },
-      { "name": "The Tabular Rule", "body": "Any figure that changes between renders is tabular. Digits must not shift horizontally when 999 becomes 1000 — a scale readout that jitters is a broken scale.", "section": "typography" },
-      { "name": "The One Headline Rule", "body": "One 20px headline per screen, top-left, above everything. Sub-sections step down to the 11px eyebrow — there is no 16px middle heading tier.", "section": "typography" },
-      { "name": "The 28rem Column Rule", "body": "Everything lives in one 448px column. No sidebars, no two-up cards, no desktop layout — a wider viewport gets more margin, not more columns.", "section": "layout" },
-      { "name": "The Thumb Floor Rule", "body": "Interactive targets sit in the lower two-thirds of the screen and are at least 44px tall. Logging happens one-handed, seconds after eating.", "section": "layout" },
-      { "name": "The Flat Paper Rule", "body": "No box-shadow, no filter: drop-shadow, no gradient, no blur, no glassmorphism. If something needs to separate from its background, it gets a rule or a tonal step, not a shadow.", "section": "elevation" },
-      { "name": "The Three Weights Rule", "body": "4px means section header boundary. 2px means this is an instrument. 1px means row divider. A rule's weight is never chosen for looks.", "section": "elevation" },
-      { "name": "The Zero Radius Rule", "body": "Nothing in this system is rounded, including elements a component library would round by default. A radius anywhere reads as a foreign object.", "section": "shapes" },
-      { "name": "The Day Strip Rule", "body": "A progress fill is never one solid block. It is segmented by entry, so the bar answers \"what made up this day\" as well as \"how far along am I\". The track's right edge always means goal, never total eaten: segments are clipped at the goal and the overage is reported by the figure and stamp.", "section": "components" },
-      { "name": "The One Hero Rule", "body": "One 44px figure per macro, two per screen, nowhere else in the product. If a third hero figure appears on a surface, the surface has no subject.", "section": "typography" }
+      {
+        "name": "The Two-Ink Rule",
+        "body": "Amber and green are the only hues the system spends. Every other mark is paper, ink, or line. A new color requires a new measured quantity to justify it — never a new mood, section, or emphasis level.",
+        "section": "colors"
+      },
+      {
+        "name": "The Earned Red Rule",
+        "body": "Signal Red reports a state and nothing else. It never styles a heading, an icon, a border, or a delete affordance. If red is on screen, a number is out of range.",
+        "section": "colors"
+      },
+      {
+        "name": "The Warm Ground Rule",
+        "body": "Neither theme reaches an extreme. No #FFFFFF, no #000000, ever. The stock is always warm.",
+        "section": "colors"
+      },
+      {
+        "name": "The Eyebrow Rule",
+        "body": "Every value carries an 11px all-caps label. A number on this surface is never left to explain itself.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Rule",
+        "body": "Any figure that changes between renders is tabular. Digits must not shift horizontally when 999 becomes 1000 — a scale readout that jitters is a broken scale.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Headline Rule",
+        "body": "One 20px headline per screen, top-left, above everything. Sub-sections step down to the 11px eyebrow — there is no 16px middle heading tier.",
+        "section": "typography"
+      },
+      {
+        "name": "The 28rem Column Rule",
+        "body": "Everything lives in one 448px column. No sidebars, no two-up cards, no desktop layout — a wider viewport gets more margin, not more columns.",
+        "section": "layout"
+      },
+      {
+        "name": "The Thumb Floor Rule",
+        "body": "Interactive targets sit in the lower two-thirds of the screen and are at least 44px tall. Logging happens one-handed, seconds after eating.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Paper Rule",
+        "body": "No box-shadow, no filter: drop-shadow, no gradient, no blur, no glassmorphism. If something needs to separate from its background, it gets a rule or a tonal step, not a shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Three Weights Rule",
+        "body": "4px means section header boundary. 2px means this is an instrument. 1px means row divider. A rule's weight is never chosen for looks.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Zero Radius Rule",
+        "body": "Nothing in this system is rounded, including elements a component library would round by default. A radius anywhere reads as a foreign object.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Day Strip Rule",
+        "body": "A progress fill is never one solid block. It is segmented by entry, so the bar answers \"what made up this day\" as well as \"how far along am I\". The track's right edge always means goal, never total eaten: segments are clipped at the goal and the overage is reported by the figure and stamp.",
+        "section": "components"
+      },
+      {
+        "name": "The One Hero Rule",
+        "body": "One 44px figure per macro, two per screen, nowhere else in the product. If a third hero figure appears on a surface, the surface has no subject.",
+        "section": "typography"
+      }
     ],
     "dos": [
       "Do lead every screen with one 20px/800 headline, top-left, and step straight down to 11px uppercase eyebrows for everything below it.",

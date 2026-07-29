@@ -70,3 +70,14 @@ export async function requireUser(): Promise<SessionUser> {
   if (!user) redirect("/who");
   return user;
 }
+
+/**
+ * The signed user id with no database round trip. Pages that are about to
+ * query for their own data use this and fold the existence check into that
+ * query — four round trips to Neon is three too many for one screen.
+ */
+export function requireUserId(): string {
+  const id = sessionUserId();
+  if (!id) redirect("/who");
+  return id;
+}

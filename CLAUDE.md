@@ -153,6 +153,20 @@ Dashboard and history pages fetch directly via Prisma in server components
 (quick-add, delete buttons, forms) call the API routes for mutations, then
 `router.refresh()`.
 
+**Pages read in one round trip.** Use `requireUserId()` (cookie only, no query)
+and fold the existence check into a single nested `user.findUnique` that selects
+the profile, entries and favorites together; redirect to `/who` when it returns
+null. Don't stack `requireUser()` plus separate `profile.upsert` /
+`foodEntry.findMany` / `favoriteFood.findMany` calls — that was four round trips
+to Sydney for one screen. `lib/goals.ts` supplies the defaults when a profile
+row is somehow absent, so rendering never blocks on a write.
+
+Every route has a `loading.tsx` built from `components/Skeleton.tsx`. They are
+not decoration: navigation is a server round trip, and without them a tap paints
+nothing until the data lands, which reads as a dead button. Keep them structural
+(real frames, rules and eyebrow labels; only values blank) and keep them in sync
+when a page's shape changes.
+
 ## Design direction
 
 Not another gradient-rings fitness app. Think **nutrition facts label**,

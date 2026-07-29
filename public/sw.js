@@ -39,6 +39,34 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
+// The page reports which build chunks it actually loaded, and they get cached
+// for next launch. Without this the first launch after an install downloads the
+// whole bundle before React can hydrate — which is exactly the window where
+// taps feel dead.
+self.addEventListener("message", (event) => {
+  const data = event.data;
+  if (!data || data.type !== "cache-assets" || !Array.isArray(data.urls)) return;
+
+  const urls = data.urls.filter((raw) => {
+    try {
+      const url = new URL(raw, self.location.origin);
+      return url.origin === self.location.origin && isCacheableAsset(url);
+    } catch {
+      return false;
+    }
+  });
+
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) =>
+      Promise.all(
+        urls.map((url) =>
+          cache.match(url).then((hit) => (hit ? null : cache.add(url).catch(() => null))),
+        ),
+      ),
+    ),
+  );
+});
+
 self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
 

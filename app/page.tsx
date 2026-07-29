@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import {
   startOfDay,
@@ -7,7 +8,8 @@ import {
   timeStamp,
   zoneLabel,
 } from "@/lib/day";
-import { requireUser } from "@/lib/session";
+import { requireUserId } from "@/lib/session";
+import { DEFAULT_GOALS } from "@/lib/goals";
 import MacroPanel from "@/components/MacroPanel";
 import MealList from "@/components/MealList";
 import QuickAddBar from "@/components/QuickAddBar";
@@ -17,26 +19,28 @@ import DayWindow from "@/components/DayWindow";
 export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
-  const user = await requireUser();
+  const userId = requireUserId();
 
-  const [profile, entries, favorites] = await Promise.all([
-    prisma.profile.upsert({
-      where: { userId: user.id },
-      update: {},
-      create: { userId: user.id },
-    }),
-    prisma.foodEntry.findMany({
-      where: {
-        userId: user.id,
-        loggedAt: { gte: startOfDay(), lte: endOfDay() },
+  // One round trip to Neon, not four: the session check, the goals, today's
+  // entries and the favorites all come back together.
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: {
+      name: true,
+      profile: true,
+      entries: {
+        where: { loggedAt: { gte: startOfDay(), lte: endOfDay() } },
+        orderBy: { loggedAt: "asc" },
       },
-      orderBy: { loggedAt: "asc" },
-    }),
-    prisma.favoriteFood.findMany({
-      where: { userId: user.id },
-      orderBy: { createdAt: "desc" },
-    }),
-  ]);
+      favorites: { orderBy: { createdAt: "desc" } },
+    },
+  });
+
+  if (!user) redirect("/who");
+
+  const profile = user.profile ?? DEFAULT_GOALS;
+  const entries = user.entries;
+  const favorites = user.favorites;
 
   const totals = entries.reduce(
     (acc, entry) => ({

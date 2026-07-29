@@ -376,13 +376,19 @@ component library would round by default. A radius anywhere reads as a foreign o
   button.
 
 ### Navigation
-- **Style:** fixed bottom bar, paper fill, 1px ink top rule, four equal-width columns.
-- **Typography:** 11px, 600 weight, uppercase, +0.025em tracking. Text only — this
+- **Style:** fixed bottom bar, paper fill, 1px ink top rule, four equal 48px columns
+  separated by 1px `line` hairlines. The hairlines are load-bearing: with no icons and
+  no boxes, they are the only thing that shows where one tab's pressable column ends
+  and the next begins.
+- **Typography:** 11px, 600 weight, uppercase, +0.12em tracking. Text only — this
   system has no icon set, and adding one is a system-level decision, not a component
   tweak.
-- **States:** active is full ink; inactive is a reduced-opacity ink. The dashboard tab
-  matches only the exact `/` route; every other tab matches by path prefix.
-- **Safe area:** `max(calc(env(safe-area-inset-bottom) - 14px), 8px)` at the bottom,
+- **States:** the active tab is a **solid ink cell with paper text** — the filled
+  rectangle is the tab's exact hit area, so "where do I press" is answered at rest.
+  Inactive tabs are 70% ink and invert to the same ink fill while pressed, which
+  confirms the boundary under the thumb. The dashboard tab matches only the exact `/`
+  route; every other tab matches by path prefix.
+- **Safe area:** `max(calc(env(safe-area-inset-bottom) - 22px), 6px)` at the bottom,
   plus the left/right insets for landscape. The top, left and right insets are the
   layout wrapper's job, not any page's.
 
