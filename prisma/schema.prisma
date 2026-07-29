@@ -1,0 +1,79 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL") // pooled, for the app
+  directUrl = env("DIRECT_URL") // unpooled, for migrations
+}
+
+enum MealType {
+  BREAKFAST
+  LUNCH
+  DINNER
+  SNACK
+}
+
+// One person sharing this deployment. Identity is a name plus a 4-digit PIN —
+// there is no email, no password reset, and no session that expires on its own.
+model User {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  pinHash     String
+  failedPins  Int       @default(0)
+  lockedUntil DateTime?
+  createdAt   DateTime  @default(now())
+
+  profile   Profile?
+  entries   FoodEntry[]
+  favorites FavoriteFood[]
+}
+
+// Daily targets, one row per user, editable from Settings
+model Profile {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  calorieGoal Int      @default(2200)
+  proteinGoal Int      @default(160)
+  carbGoal    Int?
+  fatGoal     Int?
+  updatedAt   DateTime @updatedAt
+}
+
+model FoodEntry {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String
+  calories  Int
+  protein   Float
+  carbs     Float?
+  fat       Float?
+  note      String?
+  mealType  MealType @default(SNACK)
+  loggedAt  DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@index([userId, loggedAt])
+}
+
+// Quick-add presets for things eaten often (protein shake, usual breakfast, etc.)
+model FavoriteFood {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String
+  calories  Int
+  protein   Float
+  carbs     Float?
+  fat       Float?
+  note      String?
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}

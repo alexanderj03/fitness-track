@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-28T00:00:00.000Z",
+  "title": "Design System: Macro Tracker",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "#FAFAF7",
+        "tonalRamp": ["#141410", "#2B2B23", "#434338", "#5C5C4E", "#868677", "#ADAB9E", "#D8D6CC", "#FAFAF7"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Warm Ink",
+        "canonical": "#14140F",
+        "tonalRamp": ["#141410", "#2B2B23", "#434338", "#5C5C4E", "#868677", "#ADAB9E", "#D8D6CC", "#FAFAF7"]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Bone Line",
+        "canonical": "#D8D6CC",
+        "tonalRamp": ["#141410", "#2B2B23", "#434338", "#5C5C4E", "#868677", "#ADAB9E", "#D8D6CC", "#FAFAF7"]
+      },
+      "calorie": {
+        "role": "primary",
+        "displayName": "Toasted Amber",
+        "canonical": "#C97A2E",
+        "tonalRamp": ["#2B1806", "#4A2A0C", "#6B3D13", "#8D521B", "#B0661F", "#C97A2E", "#E09A4E", "#F0C495"]
+      },
+      "protein": {
+        "role": "primary",
+        "displayName": "Field Green",
+        "canonical": "#3F6B3E",
+        "tonalRamp": ["#0E1A0E", "#182C18", "#234123", "#2F5630", "#3F6B3E", "#558455", "#6FA36D", "#A8C7A6"]
+      },
+      "over": {
+        "role": "tertiary",
+        "displayName": "Signal Red",
+        "canonical": "#B23A2E",
+        "tonalRamp": ["#2B0C08", "#451410", "#631E17", "#83271F", "#A33128", "#B23A2E", "#E0705E", "#F0A79B"]
+      },
+      "dark-ground": {
+        "role": "neutral",
+        "displayName": "Charcoal Ground",
+        "canonical": "#1C1C17",
+        "tonalRamp": ["#141410", "#1C1C17", "#23231D", "#3E3E35", "#5C5C4E", "#868677", "#ADAB9E", "#F2F1E8"]
+      },
+      "dark-surface": {
+        "role": "neutral",
+        "displayName": "Charcoal Surface",
+        "canonical": "#23231D",
+        "tonalRamp": ["#141410", "#1C1C17", "#23231D", "#3E3E35", "#5C5C4E", "#868677", "#ADAB9E", "#F2F1E8"]
+      },
+      "dark-ink": {
+        "role": "neutral",
+        "displayName": "Bone Text",
+        "canonical": "#F2F1E8",
+        "tonalRamp": ["#141410", "#1C1C17", "#23231D", "#3E3E35", "#5C5C4E", "#868677", "#ADAB9E", "#F2F1E8"]
+      },
+      "dark-line": {
+        "role": "neutral",
+        "displayName": "Charcoal Rule",
+        "canonical": "#3E3E35",
+        "tonalRamp": ["#141410", "#1C1C17", "#23231D", "#3E3E35", "#5C5C4E", "#868677", "#ADAB9E", "#F2F1E8"]
+      },
+      "dark-calorie": {
+        "role": "primary",
+        "displayName": "Lifted Amber",
+        "canonical": "#E09A4E",
+        "tonalRamp": ["#2B1806", "#4A2A0C", "#6B3D13", "#8D521B", "#B0661F", "#C97A2E", "#E09A4E", "#F0C495"]
+      },
+      "dark-protein": {
+        "role": "primary",
+        "displayName": "Lifted Green",
+        "canonical": "#6FA36D",
+        "tonalRamp": ["#0E1A0E", "#182C18", "#234123", "#2F5630", "#3F6B3E", "#558455", "#6FA36D", "#A8C7A6"]
+      },
+      "dark-over": {
+        "role": "tertiary",
+        "displayName": "Lifted Signal",
+        "canonical": "#E0705E",
+        "tonalRamp": ["#2B0C08", "#451410", "#631E17", "#83271F", "#A33128", "#B23A2E", "#E0705E", "#F0A79B"]
+      }
+    },
+    "typographyMeta": {
+      "hero": {
+        "displayName": "Hero",
+        "purpose": "The to-go figure on a MacroGauge — calories and protein only. The largest figure in the product; two per screen, nowhere else."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Large secondary figures where a hero step would overwhelm its container. Always tabular."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The single page title, top-left of every screen. One per screen, never repeated."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "The Daily Values panel header, sitting directly above its 4px rule."
+      },
+      "readout": {
+        "displayName": "Readout",
+        "purpose": "Secondary large figures such as the 14-day averages. Tabular."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Entry names, form fields, button labels. 12px is the floor for secondary numerics."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "The 11px uppercase eyebrow above every value, every section head, and the bottom nav. The most repeated type object in the system."
+      },
+      "micro": {
+        "displayName": "Micro",
+        "purpose": "Stamps and ruler end-labels only — marks printed onto an instrument rather than typeset beside it. Never body copy."
+      }
+    },
+    "themeStatus": {
+      "light": "implemented in tailwind.config.ts",
+      "dark": "committed decision, not yet implemented. Resolution: OS preference by default, with Light/Dark/Auto override in Settings; the stored preference must be applied by an inline script before first paint."
+    },
+    "contrastFindings": [
+      { "token": "ink/60 on paper", "ratio": "3.7:1", "status": "fails WCAG AA for 11-14px text; used on every eyebrow label. Correct to ink/70 (6.4:1)." },
+      { "token": "ink/40 on paper", "ratio": "2.6:1", "status": "fails WCAG AA; used on inactive nav labels and the delete glyph. Correct to ink/60 minimum, ink/70 preferred." },
+      { "token": "protein on paper", "ratio": "4.6:1", "status": "passes for text, but never carries meaning alone; the eyebrow label names the row." },
+      { "token": "calorie on paper", "ratio": "3.4:1", "status": "bar fill only. Never use as text on paper." },
+      { "token": "dark-calorie on dark-ground", "ratio": "7.4:1", "status": "pass" },
+      { "token": "dark-protein on dark-ground", "ratio": "5.9:1", "status": "pass" },
+      { "token": "dark-over on dark-ground", "ratio": "5.5:1", "status": "pass" },
+      { "token": "dark-ink on dark-ground", "ratio": "15:1", "status": "pass" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Macro Gauge",
+      "kind": "custom",
+      "refersTo": "gauge-track",
+      "description": "The signature object: one hero macro inside the Daily Values panel — eyebrow, ratio, 44px to-go figure, goal stamp, an entry-segmented day strip, and printed graduations.",
+      "html": "<div class=\"ds-gauge\"><div class=\"ds-gauge-head\"><span class=\"ds-gauge-eyebrow\">Protein</span><span class=\"ds-gauge-ratio\">174 / 160g &middot; 109%</span></div><div class=\"ds-gauge-figurerow\"><p class=\"ds-gauge-figure\">14<span class=\"ds-gauge-unit\">g over</span></p><span class=\"ds-gauge-stamp\">Goal met</span></div><div class=\"ds-gauge-track\"><div class=\"ds-gauge-seg\" style=\"width:20%\"></div><div class=\"ds-gauge-seg\" style=\"width:30%\"></div><div class=\"ds-gauge-seg\" style=\"width:38.75%\"></div><div class=\"ds-gauge-seg\" style=\"width:11.25%\"></div></div><div class=\"ds-gauge-ticks\"><span style=\"left:0%;height:8px\"></span><span style=\"left:10%;height:4px\"></span><span style=\"left:20%;height:4px\"></span><span style=\"left:30%;height:4px\"></span><span style=\"left:40%;height:4px\"></span><span style=\"left:50%;height:8px\"></span><span style=\"left:60%;height:4px\"></span><span style=\"left:70%;height:4px\"></span><span style=\"left:80%;height:4px\"></span><span style=\"left:90%;height:4px\"></span><span style=\"left:100%;height:8px\"></span></div><div class=\"ds-gauge-scale\"><span>0</span><span>80</span><span>160g</span></div></div>",
+      "css": ".ds-gauge { border-bottom: 1px solid #D8D6CC; padding: 20px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #14140F; } .ds-gauge:last-child { border-bottom: none; } .ds-gauge-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; } .ds-gauge-eyebrow { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(20,20,15,0.7); } .ds-gauge-ratio { font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(20,20,15,0.7); } .ds-gauge-figurerow { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-top: 4px; } .ds-gauge-figure { margin: 0; font-size: 2.75rem; line-height: 1; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; } .ds-gauge-unit { margin-left: 6px; font-size: 16px; font-weight: 600; letter-spacing: normal; } .ds-gauge-stamp { margin-bottom: 4px; flex-shrink: 0; border: 1px solid #14140F; padding: 3px 6px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; } .ds-gauge-track { display: flex; margin-top: 12px; height: 16px; width: 100%; border: 1px solid #14140F; background: #D8D6CC; } .ds-gauge-seg { height: 100%; background: #3F6B3E; border-right: 1px solid #FAFAF7; } .ds-gauge-seg:last-child { border-right: none; } .ds-gauge-ticks { position: relative; height: 8px; } .ds-gauge-ticks span { position: absolute; top: 0; width: 1px; transform: translateX(-1px); background: rgba(20,20,15,0.45); } .ds-gauge-scale { display: flex; justify-content: space-between; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-variant-numeric: tabular-nums; color: rgba(20,20,15,0.7); }"
+    },
+    {
+      "name": "Minor Macro Row",
+      "kind": "custom",
+      "refersTo": "goal-bar-track",
+      "description": "Carbs and fat inside the same panel, deliberately demoted: no hero figure, no stamp, no graduations. A 6px ink-tinted bar with the raw ratio beside it.",
+      "html": "<div class=\"ds-minor\"><div class=\"ds-minor-head\"><span class=\"ds-minor-eyebrow\">Carbs</span><span class=\"ds-minor-figure\">62<span class=\"ds-minor-unit\">g to go</span></span></div><div class=\"ds-minor-barrow\"><div class=\"ds-minor-track\"><div class=\"ds-minor-fill\" style=\"width:78%\"></div></div><span class=\"ds-minor-ratio\">218/280g</span></div></div>",
+      "css": ".ds-minor { border-bottom: 1px solid #D8D6CC; padding: 12px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #14140F; } .ds-minor:last-child { border-bottom: none; } .ds-minor-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; } .ds-minor-eyebrow { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(20,20,15,0.7); } .ds-minor-figure { font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; } .ds-minor-unit { margin-left: 4px; font-size: 11px; font-weight: 600; color: rgba(20,20,15,0.7); } .ds-minor-barrow { display: flex; align-items: center; gap: 8px; margin-top: 8px; } .ds-minor-track { height: 6px; width: 100%; background: #D8D6CC; } .ds-minor-fill { height: 100%; background: rgba(20,20,15,0.7); } .ds-minor-ratio { flex-shrink: 0; font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(20,20,15,0.7); }"
+    },
+    {
+      "name": "Daily Values Panel",
+      "kind": "card",
+      "refersTo": "card-panel",
+      "description": "The bordered instrument that holds the day's GoalBar rows. 2px ink frame, title, 4px rule.",
+      "html": "<div class=\"ds-panel\"><h2 class=\"ds-panel-title\">Daily Values</h2><div class=\"ds-panel-rule\"></div><div class=\"ds-panel-body\">One GoalBar per macro</div></div>",
+      "css": ".ds-panel { border: 2px solid #14140F; background: #FAFAF7; color: #14140F; padding: 12px 16px 4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; } .ds-panel-title { font-size: 18px; line-height: 28px; font-weight: 800; letter-spacing: -0.025em; margin: 0; } .ds-panel-rule { margin-top: 4px; border-bottom: 4px solid #14140F; } .ds-panel-body { padding: 12px 0; font-size: 14px; color: rgba(20,20,15,0.7); }"
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single committing action on a screen: Save Entry, Save Goals.",
+      "html": "<button class=\"ds-btn-primary\">Save Entry</button>",
+      "css": ".ds-btn-primary { display: block; width: 100%; border: 2px solid #14140F; background: #14140F; color: #FAFAF7; padding: 12px 16px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.025em; border-radius: 0; cursor: pointer; } .ds-btn-primary:hover { background: #FAFAF7; color: #14140F; } .ds-btn-primary:focus-visible { outline: 2px solid #14140F; outline-offset: 2px; } .ds-btn-primary:disabled { opacity: 0.4; cursor: default; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary navigation-style action, e.g. the dashboard's + Add affordance.",
+      "html": "<button class=\"ds-btn-outline\">+ Add</button>",
+      "css": ".ds-btn-outline { border: 1px solid #14140F; background: #FAFAF7; color: #14140F; padding: 4px 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 600; border-radius: 0; cursor: pointer; } .ds-btn-outline:hover { background: #14140F; color: #FAFAF7; } .ds-btn-outline:focus-visible { outline: 2px solid #14140F; outline-offset: 2px; }"
+    },
+    {
+      "name": "Quick-Add Chip",
+      "kind": "chip",
+      "refersTo": "chip-quickadd",
+      "description": "A saved favorite, logged in one tap. Two stacked lines: name over a tabular macro summary. Lives in a horizontally scrolling row.",
+      "html": "<button class=\"ds-chip\"><span class=\"ds-chip-name\">Protein Shake</span><span class=\"ds-chip-macros\">240 kcal &middot; 48g</span></button>",
+      "css": ".ds-chip { display: block; flex-shrink: 0; text-align: left; border: 1px solid #14140F; background: #FAFAF7; color: #14140F; padding: 8px 12px; border-radius: 0; cursor: pointer; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; } .ds-chip-name { display: block; font-size: 14px; font-weight: 500; } .ds-chip-macros { display: block; font-size: 12px; font-variant-numeric: tabular-nums; color: rgba(20,20,15,0.7); } .ds-chip:hover { background: #14140F; color: #FAFAF7; } .ds-chip:hover .ds-chip-macros { color: rgba(250,250,247,0.7); } .ds-chip:focus-visible { outline: 2px solid #14140F; outline-offset: 2px; } .ds-chip:disabled { opacity: 0.4; }"
+    },
+    {
+      "name": "Labelled Input",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "Every form field in the system: 11px uppercase eyebrow above a square 1px-bordered field. Numeric fields carry tabular figures and the right inputMode.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Calories</span><input class=\"ds-input\" type=\"number\" inputmode=\"numeric\" value=\"640\" /></label>",
+      "css": ".ds-field { display: block; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; } .ds-field-label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.025em; color: rgba(20,20,15,0.7); } .ds-input { display: block; width: 100%; margin-top: 4px; border: 1px solid #14140F; background: #FAFAF7; color: #14140F; padding: 8px; font-size: 14px; font-variant-numeric: tabular-nums; border-radius: 0; } .ds-input:focus-visible { outline: 2px solid #14140F; outline-offset: 0; }"
+    },
+    {
+      "name": "Bottom Navigation",
+      "kind": "nav",
+      "refersTo": "nav-bottom",
+      "description": "Fixed four-column text-only tab bar with a 1px ink top rule and safe-area padding for the iPhone home indicator.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-item ds-nav-item--active\" href=\"#\">Today</a><a class=\"ds-nav-item\" href=\"#\">Log</a><a class=\"ds-nav-item\" href=\"#\">History</a><a class=\"ds-nav-item\" href=\"#\">Settings</a></nav>",
+      "css": ".ds-nav { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #14140F; background: #FAFAF7; padding-bottom: env(safe-area-inset-bottom); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; } .ds-nav-item { display: flex; align-items: center; justify-content: center; padding: 12px 0; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.025em; text-decoration: none; color: rgba(20,20,15,0.6); } .ds-nav-item--active { color: #14140F; } .ds-nav-item:hover { color: #14140F; } .ds-nav-item:focus-visible { outline: 2px solid #14140F; outline-offset: -2px; }"
+    },
+    {
+      "name": "Entry Row",
+      "kind": "custom",
+      "refersTo": "card-panel",
+      "description": "One logged food inside a meal group: name and optional note on the left, tabular macros and a bare delete glyph on the right.",
+      "html": "<li class=\"ds-row\"><div><div class=\"ds-row-name\">Greek Yogurt</div><div class=\"ds-row-note\">1.5 cups</div></div><div class=\"ds-row-right\"><div class=\"ds-row-macros\"><div>190 kcal</div><div>34g protein</div></div><button class=\"ds-row-delete\" aria-label=\"Delete entry\">&times;</button></div></li>",
+      "css": ".ds-row { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #D8D6CC; padding: 8px 0; list-style: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #14140F; } .ds-row-name { font-size: 14px; font-weight: 500; } .ds-row-note { font-size: 12px; color: rgba(20,20,15,0.7); } .ds-row-right { display: flex; align-items: center; gap: 12px; } .ds-row-macros { text-align: right; font-size: 12px; font-variant-numeric: tabular-nums; color: rgba(20,20,15,0.75); } .ds-row-delete { border: none; background: none; padding: 8px; font-size: 16px; line-height: 1; color: rgba(20,20,15,0.6); cursor: pointer; } .ds-row-delete:hover { color: #14140F; } .ds-row-delete:focus-visible { outline: 2px solid #14140F; outline-offset: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Kitchen Scale",
+    "overview": "A kitchen scale has one job and one face: a large number, a unit, and a bezel. No chrome, no encouragement, no personality beyond precision. Macro Tracker is built the same way — every screen resolves to a figure large enough to read at arm's length, surrounded by calibration marks that exist only to make that figure legible. The interface is the bezel. The number is the product.\n\nThe material is printed, not rendered. Warm paper stock, near-black ink, and rules of three deliberate weights: a 4px bar under a panel header, a 2px frame around an instrument, a 1px hairline between rows. Nothing is rounded, nothing casts a shadow, nothing glows. Two chromatic voices — a baked amber for calories, a muted field green for protein — carry the only color in the system, which is why a 2px-tall amber bar reads as information rather than decoration.\n\nDark mode is not an inversion trick; it is the same instrument in a dark room. A warm charcoal ground with one tonal step up for panel surfaces, ink-colored rules that recede rather than glare, and both accents lifted in lightness while holding their hue. The paper warmth survives the switch — this system never goes to pure black or pure white.",
+    "keyCharacteristics": [
+      "One figure dominates every view; everything else is calibration",
+      "Zero border-radius, zero shadow, zero gradient — in both themes",
+      "Rule weight encodes rank: 4px header, 2px object, 1px row",
+      "Two accent hues total, both earned by data, never by decoration",
+      "System font stack only, tabular figures everywhere a number can change",
+      "Single 28rem column, thumb-first, bottom-anchored navigation"
+    ],
+    "rules": [
+      { "name": "The Two-Ink Rule", "body": "Amber and green are the only hues the system spends. Every other mark is paper, ink, or line. A new color requires a new measured quantity to justify it — never a new mood, section, or emphasis level.", "section": "colors" },
+      { "name": "The Earned Red Rule", "body": "Signal Red reports a state and nothing else. It never styles a heading, an icon, a border, or a delete affordance. If red is on screen, a number is out of range.", "section": "colors" },
+      { "name": "The Warm Ground Rule", "body": "Neither theme reaches an extreme. No #FFFFFF, no #000000, ever. The stock is always warm.", "section": "colors" },
+      { "name": "The Eyebrow Rule", "body": "Every value carries an 11px all-caps label. A number on this surface is never left to explain itself.", "section": "typography" },
+      { "name": "The Tabular Rule", "body": "Any figure that changes between renders is tabular. Digits must not shift horizontally when 999 becomes 1000 — a scale readout that jitters is a broken scale.", "section": "typography" },
+      { "name": "The One Headline Rule", "body": "One 20px headline per screen, top-left, above everything. Sub-sections step down to the 11px eyebrow — there is no 16px middle heading tier.", "section": "typography" },
+      { "name": "The 28rem Column Rule", "body": "Everything lives in one 448px column. No sidebars, no two-up cards, no desktop layout — a wider viewport gets more margin, not more columns.", "section": "layout" },
+      { "name": "The Thumb Floor Rule", "body": "Interactive targets sit in the lower two-thirds of the screen and are at least 44px tall. Logging happens one-handed, seconds after eating.", "section": "layout" },
+      { "name": "The Flat Paper Rule", "body": "No box-shadow, no filter: drop-shadow, no gradient, no blur, no glassmorphism. If something needs to separate from its background, it gets a rule or a tonal step, not a shadow.", "section": "elevation" },
+      { "name": "The Three Weights Rule", "body": "4px means section header boundary. 2px means this is an instrument. 1px means row divider. A rule's weight is never chosen for looks.", "section": "elevation" },
+      { "name": "The Zero Radius Rule", "body": "Nothing in this system is rounded, including elements a component library would round by default. A radius anywhere reads as a foreign object.", "section": "shapes" },
+      { "name": "The Day Strip Rule", "body": "A progress fill is never one solid block. It is segmented by entry, so the bar answers \"what made up this day\" as well as \"how far along am I\". The track's right edge always means goal, never total eaten: segments are clipped at the goal and the overage is reported by the figure and stamp.", "section": "components" },
+      { "name": "The One Hero Rule", "body": "One 44px figure per macro, two per screen, nowhere else in the product. If a third hero figure appears on a surface, the surface has no subject.", "section": "typography" }
+    ],
+    "dos": [
+      "Do lead every screen with one 20px/800 headline, top-left, and step straight down to 11px uppercase eyebrows for everything below it.",
+      "Do put tabular-nums on every mutable figure — the Tabular Rule is what makes this read as an instrument rather than a page.",
+      "Do encode rank in rule weight (4px / 2px / 1px) and let a 2px frame be the only thing that says \"this is an instrument\".",
+      "Do clamp progress fills at 100% of the track; report an overage with the figure and its color, never by overrunning the bar.",
+      "Do use ink at 70% or darker for any text at or below 14px. The current text-ink/60 eyebrows measure 3.7:1 and text-ink/40 nav labels and × buttons measure 2.6:1 — both fail WCAG AA and should be corrected to /70 and /60 on a paper ground.",
+      "Do give the two accents a non-color partner. Amber and green at 3.4:1 and 4.6:1 on paper cannot carry meaning alone; the eyebrow label is what actually names the row.",
+      "Do route new colors through a measured quantity. If it isn't a macro or a state, it is ink, paper, or line.",
+      "Do keep every interactive target at least 44px tall and reachable one-handed."
+    ],
+    "donts": [
+      "Don't add a border radius anywhere, including on elements a library rounds by default. Zero Radius is absolute.",
+      "Don't add a shadow, gradient, blur, or glass effect in either theme. Depth is rules and, in dark mode, one tonal step.",
+      "Don't load a webfont. The system stack is a deliberate constraint — it renders instantly, offline, on every device, and the label character comes from weight and tracking instead.",
+      "Don't use Signal Red for anything that is not a numeric state. Not for delete buttons, not for required-field markers, not for headings.",
+      "Don't color protein, carbs or fat as an error when they exceed their goal. Only calories carry an over-state, and its exact threshold is a product decision recorded in PRODUCT.md — do not invent one.",
+      "Don't reuse the light accents on the dark ground. Field Green sits at 2.1:1 there; use the lifted dark tokens.",
+      "Don't invert to pure black or pure white in dark mode. The stock stays warm.",
+      "Don't introduce a second layout column, a desktop breakpoint, or an icon set. Each is a system-level change, not a component decision.",
+      "Don't hard-code chart hex values in new work. Chart accents must resolve from tokens so both themes render correctly."
+    ]
+  }
+}

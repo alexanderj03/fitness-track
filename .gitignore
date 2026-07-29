@@ -1,0 +1,60 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files — these hold the Neon credentials and SESSION_SECRET.
+# .env.example is committed on purpose; it carries placeholders only.
+.env
+.env.*
+!.env.example
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# local database files (none in use — the app runs on Neon Postgres — but keep
+# these ignored so a stray sqlite/dump file can never be committed)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.sql.gz
+/prisma/*.db
+
+# editor / assistant config that is specific to one machine.
+# .claude/settings.local.json and .cursor/hooks.json hold absolute /root paths
+# and per-machine tool permissions; they break on anyone else's checkout.
+.claude/settings.local.json
+.cursor/
+
+# Impeccable design-system artifacts: DESIGN.md, .impeccable/design.json and
+# .impeccable/live/config.json ARE committed (they are the design system).
+# Only the generated cache and live-session journals are ignored.
+.impeccable/hook.cache.json
+.impeccable/live/sessions/
